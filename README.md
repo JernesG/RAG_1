@@ -1,1 +1,1 @@
-RAG_1
+Beginner-Friendly RAG Project
