@@ -1,7 +1,7 @@
 """ Document processing module for loading and splitting"""
 
 from typing import List, Union
-from langchain_community.document_loaders import WebBaseLoader, PyPDFLoader, TextLoader, PyPDFDirectoryLoader
+from langchain_community.document_loaders import WebBaseLoader, TextLoader, PyPDFDirectoryLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_core.documents import Document
 from pathlib import Path

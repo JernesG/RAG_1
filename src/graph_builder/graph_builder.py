@@ -5,7 +5,7 @@ from src.nodes.nodes import RAGNodes
 class GraphBuilder:
     """Build and Manage the Langgraph workflow"""
 
-    def __init__(self, retriver, llm):
+    def __init__(self, retriever, llm):
         """
         Initialize graph builder
 
@@ -14,7 +14,7 @@ class GraphBuilder:
             LLm : Language model instance
         """
 
-        self.nodes = RAGNodes()
+        self.nodes = RAGNodes(retriever, llm)
         self.graph = None
 
     def build(self):
@@ -27,7 +27,7 @@ class GraphBuilder:
         builder = StateGraph(RAGState)
 
         builder.add_node("retriever",self.nodes.retrieve_docs)
-        builder.add_node("responser",self.nodes.generate_answer)
+        builder.add_node("responder",self.nodes.generate_answer)
 
         builder.set_entry_point("retriever")
 

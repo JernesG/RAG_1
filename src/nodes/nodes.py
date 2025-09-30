@@ -21,7 +21,7 @@ class RAGNodes:
             state: Current RAG state
 
         Returns:
-            Update RAG state with Retrive document
+            Update RAG state with Retrive document retrieved_docs
         """
         docs = self.retriever.invoke(state.question)
         return RAGState(question=state.question,retrieved_docs=docs)
@@ -35,7 +35,7 @@ class RAGNodes:
         Returns:
             Updated RAG state with generated answer
         """
-        context = "\n\n".join([doc.page_content for doc in state.retrieve_docs])
+        context = "\n\n".join([doc.page_content for doc in state.retrieved_docs])
 
         prompt = f"""Answer the question based on the context.
         

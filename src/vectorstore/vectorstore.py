@@ -14,7 +14,7 @@ class Vectorstore:
         self.vectorstore = None
         self.retriever = None
 
-    def create_retriever(self,documents: List[Document]):
+    def create_vectorstore(self,documents: List[Document]):
         """
         Create vector store from documents
 
@@ -23,7 +23,7 @@ class Vectorstore:
 
         """
         self.vectorstore = Chroma.from_documents(documents,self.embeddings)
-        self.retriver = self.vectorstore.as_retriever()
+        self.retriever = self.vectorstore.as_retriever()
 
     def get_retriever(self):
         """
